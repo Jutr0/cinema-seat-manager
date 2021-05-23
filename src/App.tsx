@@ -6,6 +6,7 @@ import FormPage from "./pages/FormPage";
 import { IApiResponse, IMyState } from './utils/customTypes';
 import { MyContext } from './utils/myContext';
 import ChooseSeats from './pages/ChooseSeats';
+import Summary from './pages/Summary';
 
 
 function App() {
@@ -33,7 +34,11 @@ function App() {
     <MyContext.Provider value={{state,dispatch}}>
     <Router>
       <Switch>
-
+        {state.seatsPicked !== undefined?(
+          <Route path="/summary">
+            <Summary />
+          </Route>
+        ):null}
         {state.seatsNum!==undefined?(
         <Route path="/choose">
           <ChooseSeats />

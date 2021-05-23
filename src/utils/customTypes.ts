@@ -1,6 +1,6 @@
 import { Dispatch } from "react";
 
-export type IApiResponse = [ISeat];
+export type IApiResponse = ISeat[];
 export type ISeat = {
   id: string;
   cords: ICords;

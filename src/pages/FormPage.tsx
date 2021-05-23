@@ -23,7 +23,7 @@ const FormPage = () => {
     e.preventDefault();
     dispatch({ seatsNum, isNextTo });
 
-    history.push("/choose");
+    history.replace("/choose");
   };
 
   return (

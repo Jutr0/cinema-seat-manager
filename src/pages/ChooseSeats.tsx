@@ -1,4 +1,4 @@
-import { withRouter } from "react-router-dom";
+import { withRouter, useHistory } from "react-router-dom";
 import React, { useContext, useEffect, useState, useRef } from "react";
 
 import { MyContext } from "../utils/myContext";
@@ -7,12 +7,13 @@ import { ISeat } from "../utils/customTypes";
 import { findMatchedSeats } from "../utils/utils";
 
 const ChooseSeats = () => {
+    let history = useHistory();
+
   const [seatsToRender, setSeatsToRender] =
     useState<JSX.Element[] | undefined>();
 
   const { state, dispatch } = useContext(MyContext);
   const { apiResponse, seatsNum, isNextTo } = state;
-
   const [seats, setSeats] = useState<ISeat[]>(apiResponse!);
   const pickedSeats = useRef<ISeat[]>([]);
 
@@ -31,9 +32,12 @@ const ChooseSeats = () => {
   };
 
   const handleReservation = () => {
+
       pickedSeats.current = seats.filter(s => s.picked);
-      console.log(pickedSeats);
-    dispatch({});
+
+    dispatch({seatsPicked:pickedSeats.current,apiResponse:seats});
+    history.replace('/summary');
+
   };
 
   useEffect(() => {
