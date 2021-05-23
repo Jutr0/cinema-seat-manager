@@ -20,6 +20,6 @@ export interface IMyContext {
 export interface IMyState {
   apiResponse?: IApiResponse;
   seatsNum?: number | null;
-  seatsPicked?: ICords[];
+  seatsPicked?: ISeat[];
   isNextTo?: boolean;
 }

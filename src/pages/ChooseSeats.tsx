@@ -1,5 +1,5 @@
 import { withRouter } from "react-router-dom";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState, useRef } from "react";
 
 import { MyContext } from "../utils/myContext";
 import "../scss/chooseSeats.scss";
@@ -14,18 +14,24 @@ const ChooseSeats = () => {
   const { apiResponse, seatsNum, isNextTo } = state;
 
   const [seats, setSeats] = useState<ISeat[]>(apiResponse!);
-  const [pickedSeats, setPickedSeats] = useState<string[]>([]);
+  const pickedSeats = useRef<ISeat[]>([]);
 
   const handlePickSeat = (seat: ISeat) => {
     const tempSeats = seats.map((s) => {
       if (s.id === seat.id) {
         if (s.picked !== undefined) {
           s.picked = !s.picked;
-        } else s.picked = true;
+        } else {
+          s.picked = true;
+        }
       }
       return s;
     });
     setSeats(tempSeats);
+  };
+
+  const handleReservation = () => {
+    dispatch({});
   };
 
   useEffect(() => {
@@ -73,7 +79,15 @@ const ChooseSeats = () => {
           <div className="square"></div>Twój wybór
         </div>
       </div>
-      <div className="reserveBtn gridItem">Rezerwuj</div>
+      <div
+        className="reserveBtn gridItem"
+        onClick={(e) => {
+          e.preventDefault();
+          handleReservation();
+        }}
+      >
+        Rezerwuj
+      </div>
     </div>
   );
 };

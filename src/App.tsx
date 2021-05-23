@@ -34,7 +34,7 @@ function App() {
     <Router>
       <Switch>
 
-        {Number.isInteger(state.seatsNum)?(
+        {state.seatsNum!==undefined?(
         <Route path="/choose">
           <ChooseSeats />
         </Route>

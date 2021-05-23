@@ -6,7 +6,7 @@ import { IMyContext } from "../utils/customTypes";
 import { MyContext } from "../utils/myContext";
 
 const FormPage = () => {
-  const [seatsNum, setSeatsNum] = useState<number | null>(1);
+  const [seatsNum, setSeatsNum] = useState<number | null>(null);
   const [isNextTo, setIsNextTo] = useState<boolean>(false);
   const { state, dispatch } = useContext<IMyContext>(MyContext);
   let history = useHistory();

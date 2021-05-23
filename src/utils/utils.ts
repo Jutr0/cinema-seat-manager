@@ -62,10 +62,10 @@ const markPickedSeats = (seatsIndex: number[], seats: ISeat[]) => {
   }
 };
 
-//Add seat 
+//Add seat
 //
-// bestRun = current picked seats' numbers and indexes 
-// i = current seat index 
+// bestRun = current picked seats' numbers and indexes
+// i = current seat index
 // query = should bestRun start from 1?
 //
 const addSeat = (
