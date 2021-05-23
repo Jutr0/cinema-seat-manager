@@ -1,0 +1,58 @@
+$gridHeight: 50px;
+$gridWidth: 50px;
+$gridGap: 10px;
+$reservedSeatsColor: #434343;
+$pickedSeatsColor: #ff9900;
+$freeSeatsColor: #fff;
+
+.gridContainer {
+  display: grid;
+  text-align: center;
+  grid-template-columns: repeat(15, $gridWidth);
+  grid-template-rows: repeat(12, $gridHeight);
+  gap: $gridGap;
+
+  .gridItem {
+    background: $freeSeatsColor;
+    border: 1px solid #000;
+  }
+  .reservedSeat {
+    background: $reservedSeatsColor;
+  }
+  .pickedSeat {
+    background: $pickedSeatsColor;
+  }
+  .gridLegend {
+    grid-row-start: 12;
+    grid-column: 1 / 11;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    background: transparent;
+  }
+  .reserveBtn {
+    grid-row-start: 12;
+    grid-column: 12 / 16;
+    padding: 10px 0;
+    line-height: 28px;
+    background: #fff;
+  }
+}
+.legendItem {
+  display: flex;
+  align-items: center;
+
+  .square {
+    width: $gridWidth;
+    height: $gridHeight;
+    border: 1px solid #000;
+    margin-right: 10px;
+  }
+  &:nth-child(2) > .square {
+    background: $reservedSeatsColor;
+  }
+  &:last-child > .square {
+    background: $pickedSeatsColor;
+  }
+}

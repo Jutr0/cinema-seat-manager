@@ -1,0 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Ubuntu, Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+.reservationForm {
+  min-width: 400px;
+  font-size: 1.3rem;
+  div {
+    margin: 50px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .checkmark {
+      width: 30px;
+      height: 30px;
+      display: block;
+      margin-right: 20px;
+      border: 1px solid #000;
+      font-size: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    input[type="checkbox"] {
+      opacity: 0;
+      width: 0;
+      height: 0;
+
+      &:checked ~ .checkmark {
+        font-size: 1.9rem;
+      }
+    }
+    input[type="text"] {
+      outline: none;
+      height: 40px;
+      width: 200px;
+      border: none;
+      border: 1px solid #000;
+      padding: 1px 10px;
+      font-size: 1.5rem;
+      &:focus-visible {
+        border: none;
+        border: 2px solid #000;
+        padding: 0 9px;
+      }
+    }
+    &.checkboxInput {
+      justify-content: start;
+    }
+  }
+  button {
+    width: 100%;
+    height: 60px;
+    font-size: 1.5rem;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+    border: 2px solid #000;
+  }
+}
+
+.checkboxInput > label {
+  display: flex;
+  align-items: center;
+}
+
+@media screen and (max-width: 400px) {
+  .reservationForm {
+    min-width: 250px;
+  }
+}
