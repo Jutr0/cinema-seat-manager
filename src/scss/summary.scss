@@ -1,0 +1,22 @@
+.summaryContainer {
+  width: 95vw;
+  height: 100vh;
+}
+h1 {
+  margin: 50px 0;
+}
+.pickedSeatsContainer {
+  list-style-type: none;
+  font-size: 1.3rem;
+
+  li {
+    margin: 10px;
+    font-size: 1.1rem;
+    &::before {
+      content: " - ";
+    }
+  }
+}
+h2 {
+  margin-top: 50px;
+}

@@ -7,7 +7,7 @@ import { ISeat } from "../utils/customTypes";
 import { findMatchedSeats } from "../utils/utils";
 
 const ChooseSeats = () => {
-    let history = useHistory();
+  let history = useHistory();
 
   const [seatsToRender, setSeatsToRender] =
     useState<JSX.Element[] | undefined>();
@@ -32,12 +32,10 @@ const ChooseSeats = () => {
   };
 
   const handleReservation = () => {
+    pickedSeats.current = seats.filter((s) => s.picked);
 
-      pickedSeats.current = seats.filter(s => s.picked);
-
-    dispatch({seatsPicked:pickedSeats.current,apiResponse:seats});
-    history.replace('/summary');
-
+    dispatch({ seatsPicked: pickedSeats.current, apiResponse: seats });
+    history.replace("/summary");
   };
 
   useEffect(() => {
