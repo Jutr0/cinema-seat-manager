@@ -31,6 +31,8 @@ const ChooseSeats = () => {
   };
 
   const handleReservation = () => {
+      pickedSeats.current = seats.filter(s => s.picked);
+      console.log(pickedSeats);
     dispatch({});
   };
 
