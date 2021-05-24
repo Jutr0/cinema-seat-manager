@@ -13,7 +13,6 @@ function App() {
 
   function reducer(state:IMyState, action:IMyState)
   {
-    console.log({...state || {}, ...action})
     return {...state || {}, ...action}
   }
   const [state,dispatch] = useReducer(reducer,{})

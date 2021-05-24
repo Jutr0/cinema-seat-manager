@@ -11,6 +11,8 @@ $freeSeatsColor: #fff;
   grid-template-columns: repeat(15, $gridWidth);
   grid-template-rows: repeat(12, $gridHeight);
   gap: $gridGap;
+  padding:20px;
+  
 
   .gridItem {
     background: $freeSeatsColor;
@@ -59,4 +61,12 @@ $freeSeatsColor: #fff;
   &:last-child > .square {
     background: $pickedSeatsColor;
   }
+}
+
+@media screen and (max-width: 930px){
+
+  #root{
+    overflow-x: scroll;
+  }
+
 }
