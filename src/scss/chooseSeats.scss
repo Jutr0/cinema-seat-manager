@@ -37,6 +37,10 @@ $freeSeatsColor: #fff;
     padding: 10px 0;
     line-height: 28px;
     background: #fff;
+    &:hover{
+      background: #eee;
+      cursor: pointer;
+    }
   }
 }
 .legendItem {

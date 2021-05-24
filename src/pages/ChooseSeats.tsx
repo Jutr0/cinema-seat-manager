@@ -83,7 +83,7 @@ const ChooseSeats = () => {
           <div className="square"></div>Twój wybór
         </div>
       </div>
-      <div
+      <button
         className="reserveBtn gridItem"
         onClick={(e) => {
           e.preventDefault();
@@ -91,7 +91,7 @@ const ChooseSeats = () => {
         }}
       >
         Rezerwuj
-      </div>
+      </button>
     </div>
   );
 };

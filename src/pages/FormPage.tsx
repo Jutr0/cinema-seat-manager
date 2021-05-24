@@ -1,8 +1,8 @@
-import { useState, useContext, FormEvent } from "react";
+import { useState, useContext, FormEvent, useEffect } from "react";
 import { withRouter, useHistory } from "react-router-dom";
 
 import "../scss/formPage.scss";
-import { IMyContext } from "../utils/customTypes";
+import { IMyContext, ISeat } from "../utils/customTypes";
 import { MyContext } from "../utils/myContext";
 
 const FormPage = () => {
@@ -10,6 +10,22 @@ const FormPage = () => {
   const [isNextTo, setIsNextTo] = useState<boolean>(false);
   const { state, dispatch } = useContext<IMyContext>(MyContext);
   let history = useHistory();
+
+  
+  useEffect(()=>{
+
+    if (history.length > 0 && state.apiResponse !== undefined) {
+
+      const tempSeats:ISeat[] = state.apiResponse.map(step=>{
+        if(step.picked)step.picked=false;
+        return step;
+      })
+      dispatch({apiResponse:tempSeats})
+    }
+
+    history.replace('/');
+
+  },[])
 
   const checkSeats = (value: string) => {
     if (+value === 0) {
@@ -23,7 +39,7 @@ const FormPage = () => {
     e.preventDefault();
     dispatch({ seatsNum, isNextTo });
 
-    history.replace("/choose");
+    history.push("/choose");
   };
 
   return (
