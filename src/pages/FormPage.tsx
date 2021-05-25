@@ -11,21 +11,17 @@ const FormPage = () => {
   const { state, dispatch } = useContext<IMyContext>(MyContext);
   let history = useHistory();
 
-  
-  useEffect(()=>{
-
+  useEffect(() => {
     if (history.length > 0 && state.apiResponse !== undefined) {
-
-      const tempSeats:ISeat[] = state.apiResponse.map(step=>{
-        if(step.picked)step.picked=false;
+      const tempSeats: ISeat[] = state.apiResponse.map((step) => {
+        if (step.picked) step.picked = false;
         return step;
-      })
-      dispatch({apiResponse:tempSeats})
+      });
+      dispatch({ apiResponse: tempSeats });
     }
 
-    history.replace('/');
-
-  },[])
+    history.replace("/");
+  }, []);
 
   const checkSeats = (value: string) => {
     if (+value === 0) {

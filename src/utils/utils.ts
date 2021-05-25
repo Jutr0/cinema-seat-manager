@@ -79,3 +79,27 @@ const addSeat = (
   }
   bestRun.index.push(i);
 };
+
+export const calculateSeats = (
+  seats: ISeat[]
+): { gridX: number; gridY: number } => {
+  let { gridX, gridY }: { gridX: number; gridY: number } = seats.reduce<{
+    gridX: number;
+    gridY: number;
+  }>(
+    (dims: { gridX: number; gridY: number }, current: ISeat) => {
+      if (current.cords.x > dims.gridX) {
+        dims.gridX = current.cords.x;
+      }
+      if (current.cords.y > dims.gridY) {
+        dims.gridY = current.cords.y;
+      }
+      return dims;
+    },
+    { gridX: 0, gridY: 0 }
+  );
+  gridX++;
+  gridY++;
+
+  return { gridX, gridY };
+};

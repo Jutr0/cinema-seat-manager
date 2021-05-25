@@ -1,18 +1,10 @@
-$gridHeight: 50px;
-$gridWidth: 50px;
-$gridGap: 10px;
-$reservedSeatsColor: #434343;
-$pickedSeatsColor: #ff9900;
-$freeSeatsColor: #fff;
+@import "variables.scss";
 
 .gridContainer {
   display: grid;
   text-align: center;
-  grid-template-columns: repeat(15, $gridWidth);
-  grid-template-rows: repeat(12, $gridHeight);
   gap: $gridGap;
-  padding:20px;
-  
+  padding: 20px;
 
   .gridItem {
     background: $freeSeatsColor;
@@ -39,7 +31,7 @@ $freeSeatsColor: #fff;
     padding: 10px 0;
     line-height: 28px;
     background: #fff;
-    &:hover{
+    &:hover {
       background: #eee;
       cursor: pointer;
     }
@@ -63,10 +55,8 @@ $freeSeatsColor: #fff;
   }
 }
 
-@media screen and (max-width: 930px){
-
-  #root{
+@media screen and (max-width: 930px) {
+  #root {
     overflow-x: scroll;
   }
-
 }

@@ -10,7 +10,7 @@ const Summary = () => {
 
   const seatsPickedList = seatsPicked!.map((step) => {
     return (
-      <li key = {step.id}>
+      <li key={step.id}>
         rząd {step.cords.x + 1}, miejsce {step.cords.y + 1} ({step.id}){" "}
       </li>
     );
