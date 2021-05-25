@@ -34,7 +34,6 @@ export function findMatchedSeats(
       bestRun.value = 0;
       bestRun.index = [];
     }
-    console.log(bestRun);
     lastY = currY;
     lastX = currX;
 

@@ -32,7 +32,6 @@ const ChooseSeats = () => {
       }
       return s;
     });
-    console.log(tempSeats);
     setSeats(tempSeats);
   };
 
