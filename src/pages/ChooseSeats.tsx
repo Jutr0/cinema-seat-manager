@@ -37,10 +37,11 @@ const ChooseSeats = () => {
   };
 
   const handleReservation = () => {
+    
     pickedSeats.current = seats.filter((s) => s.picked);
-
+    if(pickedSeats.current.length>0){
     dispatch({ seatsPicked: pickedSeats.current, apiResponse: seats });
-    history.replace("/summary");
+    history.replace("/summary");}
   };
 
   useEffect(() => {
@@ -81,6 +82,7 @@ const ChooseSeats = () => {
       {seatsToRender}
       <Legend />
       <button
+        
         className="reserveBtn gridItem"
         onClick={(e) => {
           e.preventDefault();
