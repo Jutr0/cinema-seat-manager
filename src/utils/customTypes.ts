@@ -23,3 +23,7 @@ export interface IMyState {
   seatsPicked?: ISeat[];
   isNextTo?: boolean;
 }
+export interface IDims {
+  gridX: number; 
+  gridY: number;
+}

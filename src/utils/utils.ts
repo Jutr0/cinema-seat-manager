@@ -1,4 +1,4 @@
-import { ISeat } from "./customTypes";
+import { IDims, ISeat } from "./customTypes";
 
 export function findMatchedSeats(
   seatsNum: number,
@@ -82,12 +82,9 @@ const addSeat = (
 
 export const calculateSeats = (
   seats: ISeat[]
-): { gridX: number; gridY: number } => {
-  let { gridX, gridY }: { gridX: number; gridY: number } = seats.reduce<{
-    gridX: number;
-    gridY: number;
-  }>(
-    (dims: { gridX: number; gridY: number }, current: ISeat) => {
+): IDims => {
+  let { gridX, gridY }: IDims = seats.reduce<IDims>(
+    (dims: IDims, current: ISeat) => {
       if (current.cords.x > dims.gridX) {
         dims.gridX = current.cords.x;
       }
